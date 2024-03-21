@@ -1,0 +1,15 @@
+syntax = "proto3";
+package simpleswap.simpleswap;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "simpleswap/x/simpleswap/Params";
+  option (gogoproto.equal) = true;
+
+  
+}
