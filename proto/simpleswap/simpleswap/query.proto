@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package simpleswap.simpleswap;
 
 import "amino/amino.proto";
@@ -6,25 +7,66 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "simpleswap/simpleswap/params.proto";
+import "simpleswap/simpleswap/system_info.proto";
+import "simpleswap/simpleswap/stable_coins_white_list.proto";
 
 option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/fenriz07/simpleswap/simpleswap/params";
+  
+  }
+  
+  // Queries a SystemInfo by index.
+  rpc SystemInfo (QueryGetSystemInfoRequest) returns (QueryGetSystemInfoResponse) {
+    option (google.api.http).get = "/fenriz07/simpleswap/simpleswap/system_info";
+  
+  }
+  
+  // Queries a list of StableCoinsWhiteList items.
+  rpc StableCoinsWhiteList    (QueryGetStableCoinsWhiteListRequest) returns (QueryGetStableCoinsWhiteListResponse) {
+    option (google.api.http).get = "/fenriz07/simpleswap/simpleswap/stable_coins_white_list/{index}";
+  
+  }
+  rpc StableCoinsWhiteListAll (QueryAllStableCoinsWhiteListRequest) returns (QueryAllStableCoinsWhiteListResponse) {
+    option (google.api.http).get = "/fenriz07/simpleswap/simpleswap/stable_coins_white_list";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
-  Params params = 1 [
-    (gogoproto.nullable) = false,
-    (amino.dont_omitempty) = true
-  ];
+  Params params = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
 }
+
+message QueryGetSystemInfoRequest {}
+
+message QueryGetSystemInfoResponse {
+  SystemInfo SystemInfo = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetStableCoinsWhiteListRequest {
+  string index = 1;
+}
+
+message QueryGetStableCoinsWhiteListResponse {
+  StableCoinsWhiteList stableCoinsWhiteList = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllStableCoinsWhiteListRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllStableCoinsWhiteListResponse {
+  repeated StableCoinsWhiteList                   stableCoinsWhiteList = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination           = 2;
+}
+

@@ -17,6 +17,22 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod: "SystemInfo",
+					Use:       "show-system-info",
+					Short:     "show systemInfo",
+				},
+				{
+					RpcMethod: "StableCoinsWhiteListAll",
+					Use:       "list-stable-coins-white-list",
+					Short:     "List all stableCoinsWhiteList",
+				},
+				{
+					RpcMethod:      "StableCoinsWhiteList",
+					Use:            "show-stable-coins-white-list [id]",
+					Short:          "Shows a stableCoinsWhiteList",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "index"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

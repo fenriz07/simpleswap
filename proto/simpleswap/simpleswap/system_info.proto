@@ -1,0 +1,9 @@
+syntax = "proto3";
+package simpleswap.simpleswap;
+
+option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
+
+message SystemInfo {
+  uint64 nextId = 1; 
+  
+}

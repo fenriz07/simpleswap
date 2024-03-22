@@ -1,0 +1,12 @@
+syntax = "proto3";
+package simpleswap.simpleswap;
+
+option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
+
+message StableCoinsWhiteList {
+  string index = 1; 
+  string coin = 2; 
+  bool available = 3; 
+  
+}
+
