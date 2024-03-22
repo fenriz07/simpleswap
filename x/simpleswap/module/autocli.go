@@ -44,6 +44,12 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
 				},
+				{
+					RpcMethod:      "ProvideLiquidity",
+					Use:            "provide-liquidity [stable-coin-id] [amount]",
+					Short:          "Send a provideLiquidity tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "stableCoinId"}, {ProtoField: "amount"}},
+				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},

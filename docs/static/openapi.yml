@@ -19262,6 +19262,50 @@ paths:
               parameters.
       tags:
         - Msg
+  /simpleswap.simpleswap.Msg/ProvideLiquidity:
+    post:
+      operationId: SimpleswapSimpleswapMsg_ProvideLiquidity
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              provideLiquisityResponse:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+              stableCoinId:
+                type: string
+              amount:
+                type: string
+      tags:
+        - Msg
   /simpleswap.simpleswap.Msg/UpdateParams:
     post:
       summary: |-
@@ -19310,10 +19354,7 @@ paths:
                   authority is the address that controls the module (defaults to
                   x/gov unless overwritten).
               params:
-                description: |-
-                  params defines the module parameters to update.
-
-                  NOTE: All parameters must be supplied.
+                description: 'NOTE: All parameters must be supplied.'
                 type: object
             description: MsgUpdateParams is the Msg/UpdateParams request type.
       tags:
@@ -27299,6 +27340,20 @@ definitions:
     description: |-
       Version defines the versioning scheme used to negotiate the IBC verison in
       the connection handshake.
+  simpleswap.simpleswap.MsgProvideLiquidity:
+    type: object
+    properties:
+      creator:
+        type: string
+      stableCoinId:
+        type: string
+      amount:
+        type: string
+  simpleswap.simpleswap.MsgProvideLiquidityResponse:
+    type: object
+    properties:
+      provideLiquisityResponse:
+        type: string
   simpleswap.simpleswap.MsgUpdateParams:
     type: object
     properties:
@@ -27308,10 +27363,7 @@ definitions:
           authority is the address that controls the module (defaults to x/gov
           unless overwritten).
       params:
-        description: |-
-          params defines the module parameters to update.
-
-          NOTE: All parameters must be supplied.
+        description: 'NOTE: All parameters must be supplied.'
         type: object
     description: MsgUpdateParams is the Msg/UpdateParams request type.
   simpleswap.simpleswap.MsgUpdateParamsResponse:

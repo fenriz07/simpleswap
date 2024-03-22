@@ -54,3 +54,11 @@ curl https://get.ignite.com/fenriz07/simpleswap@latest! | sudo bash
 - ignite chain serve
 - simpleswapd query simpleswap show-system-info
 - simpleswapd query simpleswap list-stable-coins-white-list
+- simpleswapd tx simpleswap provide-liquidity 2 100 --from $(simpleswapd keys show servio -a) 
+- simpleswapd query tx x
+
+
+- simpleswapd keys list
+- simpleswapd query bank balances $(simpleswapd keys show servio -a)
+checkersd tx checkers create-game $alice $bob --from $alice --gas auto
+

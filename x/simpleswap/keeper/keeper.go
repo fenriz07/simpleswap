@@ -20,10 +20,12 @@ type (
 		// the address capable of executing a MsgUpdateParams message. Typically, this
 		// should be the x/gov module account.
 		authority string
+		bank      types.BankKeeper
 	}
 )
 
 func NewKeeper(
+	bank types.BankKeeper,
 	cdc codec.BinaryCodec,
 	storeService store.KVStoreService,
 	logger log.Logger,
@@ -35,6 +37,7 @@ func NewKeeper(
 	}
 
 	return Keeper{
+		bank:         bank,
 		cdc:          cdc,
 		storeService: storeService,
 		authority:    authority,
