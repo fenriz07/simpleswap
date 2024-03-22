@@ -1,21 +1,34 @@
 version: 1
 accounts:
+- name: thepool
+  coins:
+   - 0usdc
+   - 0usdt
+   - 0dai
+   - 0fdusd
+   - 1000weth
+   - 1000eth
+   - 1000steth
+   - 100000stake
+  address: cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4
 - name: virgie
   coins:
-  - 20000usdc
-  - 200000000stake
+   - 20000usdc
+   - 200000000stake
 - name: servio
   coins:
   - 10000usdc
   - 100000000stake
 - name: carlos
   coins:
-  - 10000usdc
-  - 100000000stake
+   - 10000usdc
+   - 100000000stake
+  address: cosmos1c474vrhw3ejq6s0kt2qx4pj43m70a3r8nk5skg
 - name: manuel
   coins:
-  - 10000usdc
-  - 100000000stake
+   - 10000usdc
+   - 100000000stake
+  address: cosmos1r3e63nat643tlxms88clv9rvzhq8cvc27tcsh3
 client:
   openapi:
     path: docs/static/openapi.yml

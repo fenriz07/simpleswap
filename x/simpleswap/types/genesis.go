@@ -22,7 +22,7 @@ func DefaultGenesis() *GenesisState {
 			{
 				Index:     "2",
 				Coin:      "usdt",
-				Available: true,
+				Available: false,
 			},
 			{
 				Index:     "3",
@@ -32,7 +32,7 @@ func DefaultGenesis() *GenesisState {
 			{
 				Index:     "4",
 				Coin:      "fdusd",
-				Available: true,
+				Available: false,
 			},
 		},
 		// this line is used by starport scaffolding # genesis/types/default
