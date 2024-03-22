@@ -1,21 +1,29 @@
 version: 1
 accounts:
-- name: alice
+- name: virgie
   coins:
-  - 20000token
+  - 20000usdc
   - 200000000stake
-- name: bob
+- name: servio
   coins:
-  - 10000token
+  - 10000usdc
+  - 100000000stake
+- name: carlos
+  coins:
+  - 10000usdc
+  - 100000000stake
+- name: manuel
+  coins:
+  - 10000usdc
   - 100000000stake
 client:
   openapi:
     path: docs/static/openapi.yml
 faucet:
-  name: bob
+  name: servio
   coins:
-  - 5token
+  - 5usdc
   - 100000stake
 validators:
-- name: alice
+- name: virgie
   bonded: 100000000stake
