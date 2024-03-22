@@ -52,3 +52,5 @@ curl https://get.ignite.com/fenriz07/simpleswap@latest! | sudo bash
 
 ##
 - ignite chain serve
+- simpleswapd query simpleswap show-system-info
+- simpleswapd query simpleswap list-stable-coins-white-list
