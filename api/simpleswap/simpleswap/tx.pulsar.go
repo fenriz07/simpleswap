@@ -2818,6 +2818,910 @@ func (x *fastReflection_MsgSwapResponse) ProtoMethods() *protoiface.Methods {
 	}
 }
 
+var (
+	md_MsgClaimLiquidity                     protoreflect.MessageDescriptor
+	fd_MsgClaimLiquidity_creator             protoreflect.FieldDescriptor
+	fd_MsgClaimLiquidity_providerLiquidityId protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_simpleswap_simpleswap_tx_proto_init()
+	md_MsgClaimLiquidity = File_simpleswap_simpleswap_tx_proto.Messages().ByName("MsgClaimLiquidity")
+	fd_MsgClaimLiquidity_creator = md_MsgClaimLiquidity.Fields().ByName("creator")
+	fd_MsgClaimLiquidity_providerLiquidityId = md_MsgClaimLiquidity.Fields().ByName("providerLiquidityId")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgClaimLiquidity)(nil)
+
+type fastReflection_MsgClaimLiquidity MsgClaimLiquidity
+
+func (x *MsgClaimLiquidity) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgClaimLiquidity)(x)
+}
+
+func (x *MsgClaimLiquidity) slowProtoReflect() protoreflect.Message {
+	mi := &file_simpleswap_simpleswap_tx_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgClaimLiquidity_messageType fastReflection_MsgClaimLiquidity_messageType
+var _ protoreflect.MessageType = fastReflection_MsgClaimLiquidity_messageType{}
+
+type fastReflection_MsgClaimLiquidity_messageType struct{}
+
+func (x fastReflection_MsgClaimLiquidity_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgClaimLiquidity)(nil)
+}
+func (x fastReflection_MsgClaimLiquidity_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgClaimLiquidity)
+}
+func (x fastReflection_MsgClaimLiquidity_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgClaimLiquidity
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgClaimLiquidity) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgClaimLiquidity
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgClaimLiquidity) Type() protoreflect.MessageType {
+	return _fastReflection_MsgClaimLiquidity_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgClaimLiquidity) New() protoreflect.Message {
+	return new(fastReflection_MsgClaimLiquidity)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgClaimLiquidity) Interface() protoreflect.ProtoMessage {
+	return (*MsgClaimLiquidity)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgClaimLiquidity) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Creator != "" {
+		value := protoreflect.ValueOfString(x.Creator)
+		if !f(fd_MsgClaimLiquidity_creator, value) {
+			return
+		}
+	}
+	if x.ProviderLiquidityId != "" {
+		value := protoreflect.ValueOfString(x.ProviderLiquidityId)
+		if !f(fd_MsgClaimLiquidity_providerLiquidityId, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgClaimLiquidity) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		return x.Creator != ""
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		return x.ProviderLiquidityId != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidity) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		x.Creator = ""
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		x.ProviderLiquidityId = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgClaimLiquidity) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		value := x.Creator
+		return protoreflect.ValueOfString(value)
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		value := x.ProviderLiquidityId
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidity) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		x.Creator = value.Interface().(string)
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		x.ProviderLiquidityId = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidity) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		panic(fmt.Errorf("field creator of message simpleswap.simpleswap.MsgClaimLiquidity is not mutable"))
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		panic(fmt.Errorf("field providerLiquidityId of message simpleswap.simpleswap.MsgClaimLiquidity is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgClaimLiquidity) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidity.creator":
+		return protoreflect.ValueOfString("")
+	case "simpleswap.simpleswap.MsgClaimLiquidity.providerLiquidityId":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidity"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidity does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgClaimLiquidity) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in simpleswap.simpleswap.MsgClaimLiquidity", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgClaimLiquidity) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidity) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgClaimLiquidity) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgClaimLiquidity) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgClaimLiquidity)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Creator)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.ProviderLiquidityId)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgClaimLiquidity)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.ProviderLiquidityId) > 0 {
+			i -= len(x.ProviderLiquidityId)
+			copy(dAtA[i:], x.ProviderLiquidityId)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.ProviderLiquidityId)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Creator) > 0 {
+			i -= len(x.Creator)
+			copy(dAtA[i:], x.Creator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Creator)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgClaimLiquidity)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgClaimLiquidity: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgClaimLiquidity: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Creator = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ProviderLiquidityId", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.ProviderLiquidityId = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgClaimLiquidityResponse                        protoreflect.MessageDescriptor
+	fd_MsgClaimLiquidityResponse_claimLiquidityResponse protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_simpleswap_simpleswap_tx_proto_init()
+	md_MsgClaimLiquidityResponse = File_simpleswap_simpleswap_tx_proto.Messages().ByName("MsgClaimLiquidityResponse")
+	fd_MsgClaimLiquidityResponse_claimLiquidityResponse = md_MsgClaimLiquidityResponse.Fields().ByName("claimLiquidityResponse")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgClaimLiquidityResponse)(nil)
+
+type fastReflection_MsgClaimLiquidityResponse MsgClaimLiquidityResponse
+
+func (x *MsgClaimLiquidityResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgClaimLiquidityResponse)(x)
+}
+
+func (x *MsgClaimLiquidityResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_simpleswap_simpleswap_tx_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgClaimLiquidityResponse_messageType fastReflection_MsgClaimLiquidityResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgClaimLiquidityResponse_messageType{}
+
+type fastReflection_MsgClaimLiquidityResponse_messageType struct{}
+
+func (x fastReflection_MsgClaimLiquidityResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgClaimLiquidityResponse)(nil)
+}
+func (x fastReflection_MsgClaimLiquidityResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgClaimLiquidityResponse)
+}
+func (x fastReflection_MsgClaimLiquidityResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgClaimLiquidityResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgClaimLiquidityResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgClaimLiquidityResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgClaimLiquidityResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgClaimLiquidityResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgClaimLiquidityResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgClaimLiquidityResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgClaimLiquidityResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgClaimLiquidityResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgClaimLiquidityResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.ClaimLiquidityResponse != "" {
+		value := protoreflect.ValueOfString(x.ClaimLiquidityResponse)
+		if !f(fd_MsgClaimLiquidityResponse_claimLiquidityResponse, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgClaimLiquidityResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		return x.ClaimLiquidityResponse != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidityResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		x.ClaimLiquidityResponse = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgClaimLiquidityResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		value := x.ClaimLiquidityResponse
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidityResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		x.ClaimLiquidityResponse = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidityResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		panic(fmt.Errorf("field claimLiquidityResponse of message simpleswap.simpleswap.MsgClaimLiquidityResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgClaimLiquidityResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "simpleswap.simpleswap.MsgClaimLiquidityResponse.claimLiquidityResponse":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: simpleswap.simpleswap.MsgClaimLiquidityResponse"))
+		}
+		panic(fmt.Errorf("message simpleswap.simpleswap.MsgClaimLiquidityResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgClaimLiquidityResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in simpleswap.simpleswap.MsgClaimLiquidityResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgClaimLiquidityResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgClaimLiquidityResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgClaimLiquidityResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgClaimLiquidityResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgClaimLiquidityResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.ClaimLiquidityResponse)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgClaimLiquidityResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.ClaimLiquidityResponse) > 0 {
+			i -= len(x.ClaimLiquidityResponse)
+			copy(dAtA[i:], x.ClaimLiquidityResponse)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.ClaimLiquidityResponse)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgClaimLiquidityResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgClaimLiquidityResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgClaimLiquidityResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ClaimLiquidityResponse", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.ClaimLiquidityResponse = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -3068,6 +3972,84 @@ func (*MsgSwapResponse) Descriptor() ([]byte, []int) {
 	return file_simpleswap_simpleswap_tx_proto_rawDescGZIP(), []int{5}
 }
 
+type MsgClaimLiquidity struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Creator             string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ProviderLiquidityId string `protobuf:"bytes,2,opt,name=providerLiquidityId,proto3" json:"providerLiquidityId,omitempty"`
+}
+
+func (x *MsgClaimLiquidity) Reset() {
+	*x = MsgClaimLiquidity{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_simpleswap_simpleswap_tx_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgClaimLiquidity) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgClaimLiquidity) ProtoMessage() {}
+
+// Deprecated: Use MsgClaimLiquidity.ProtoReflect.Descriptor instead.
+func (*MsgClaimLiquidity) Descriptor() ([]byte, []int) {
+	return file_simpleswap_simpleswap_tx_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *MsgClaimLiquidity) GetCreator() string {
+	if x != nil {
+		return x.Creator
+	}
+	return ""
+}
+
+func (x *MsgClaimLiquidity) GetProviderLiquidityId() string {
+	if x != nil {
+		return x.ProviderLiquidityId
+	}
+	return ""
+}
+
+type MsgClaimLiquidityResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ClaimLiquidityResponse string `protobuf:"bytes,1,opt,name=claimLiquidityResponse,proto3" json:"claimLiquidityResponse,omitempty"`
+}
+
+func (x *MsgClaimLiquidityResponse) Reset() {
+	*x = MsgClaimLiquidityResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_simpleswap_simpleswap_tx_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgClaimLiquidityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgClaimLiquidityResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgClaimLiquidityResponse.ProtoReflect.Descriptor instead.
+func (*MsgClaimLiquidityResponse) Descriptor() ([]byte, []int) {
+	return file_simpleswap_simpleswap_tx_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *MsgClaimLiquidityResponse) GetClaimLiquidityResponse() string {
+	if x != nil {
+		return x.ClaimLiquidityResponse
+	}
+	return ""
+}
+
 var File_simpleswap_simpleswap_tx_proto protoreflect.FileDescriptor
 
 var file_simpleswap_simpleswap_tx_proto_rawDesc = []byte{
@@ -3121,39 +4103,59 @@ var file_simpleswap_simpleswap_tx_proto_rawDesc = []byte{
 	0x6e, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x64, 0x65, 0x6e, 0x6f, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x05, 0x64, 0x65, 0x6e, 0x6f, 0x6d, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63,
 	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x11, 0x0a, 0x0f, 0x4d, 0x73, 0x67, 0x53, 0x77, 0x61,
-	0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xb8, 0x02, 0x0a, 0x03, 0x4d, 0x73,
-	0x67, 0x12, 0x66, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d,
-	0x73, 0x12, 0x26, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73,
-	0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x2e, 0x2e, 0x73, 0x69, 0x6d, 0x70,
-	0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61,
-	0x70, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x72, 0x0a, 0x10, 0x50, 0x72, 0x6f,
-	0x76, 0x69, 0x64, 0x65, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x12, 0x2a, 0x2e,
+	0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x6d, 0x0a, 0x11, 0x4d, 0x73, 0x67,
+	0x43, 0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x12, 0x18,
+	0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x30, 0x0a, 0x13, 0x70, 0x72, 0x6f, 0x76,
+	0x69, 0x64, 0x65, 0x72, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x49, 0x64, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x13, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x4c,
+	0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x49, 0x64, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a,
+	0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x53, 0x0a, 0x19, 0x4d, 0x73, 0x67, 0x43,
+	0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x16, 0x63, 0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69,
+	0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x16, 0x63, 0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69, 0x71, 0x75,
+	0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xa6, 0x03,
+	0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x66, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50,
+	0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x26, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77,
+	0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73,
+	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x2e, 0x2e,
+	0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c,
+	0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50,
+	0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x72, 0x0a,
+	0x10, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74,
+	0x79, 0x12, 0x2a, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73,
+	0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f,
+	0x76, 0x69, 0x64, 0x65, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x1a, 0x32, 0x2e,
 	0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c,
 	0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65,
-	0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x1a, 0x32, 0x2e, 0x73, 0x69, 0x6d, 0x70,
+	0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x4e, 0x0a, 0x04, 0x53, 0x77, 0x61, 0x70, 0x12, 0x1e, 0x2e, 0x73, 0x69, 0x6d, 0x70,
 	0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61,
-	0x70, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x4c, 0x69, 0x71, 0x75,
-	0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4e, 0x0a,
-	0x04, 0x53, 0x77, 0x61, 0x70, 0x12, 0x1e, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77,
-	0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73,
-	0x67, 0x53, 0x77, 0x61, 0x70, 0x1a, 0x26, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77,
-	0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73,
-	0x67, 0x53, 0x77, 0x61, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a, 0x05, 0x80,
-	0xe7, 0xb0, 0x2a, 0x01, 0x42, 0xc1, 0x01, 0x0a, 0x19, 0x63, 0x6f, 0x6d, 0x2e, 0x73, 0x69, 0x6d,
-	0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77,
-	0x61, 0x70, 0x42, 0x07, 0x54, 0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x26, 0x63,
-	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f,
-	0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2f, 0x73, 0x69, 0x6d, 0x70, 0x6c,
-	0x65, 0x73, 0x77, 0x61, 0x70, 0xa2, 0x02, 0x03, 0x53, 0x53, 0x58, 0xaa, 0x02, 0x15, 0x53, 0x69,
-	0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73,
-	0x77, 0x61, 0x70, 0xca, 0x02, 0x15, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70,
-	0x5c, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0xe2, 0x02, 0x21, 0x53, 0x69,
-	0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x5c, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73,
-	0x77, 0x61, 0x70, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
-	0x02, 0x16, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x3a, 0x3a, 0x53, 0x69,
-	0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x2e, 0x4d, 0x73, 0x67, 0x53, 0x77, 0x61, 0x70, 0x1a, 0x26, 0x2e, 0x73, 0x69, 0x6d, 0x70,
+	0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61,
+	0x70, 0x2e, 0x4d, 0x73, 0x67, 0x53, 0x77, 0x61, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x6c, 0x0a, 0x0e, 0x43, 0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64,
+	0x69, 0x74, 0x79, 0x12, 0x28, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70,
+	0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x43,
+	0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69, 0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x1a, 0x30, 0x2e,
+	0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c,
+	0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x6c, 0x61, 0x69, 0x6d, 0x4c, 0x69,
+	0x71, 0x75, 0x69, 0x64, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a,
+	0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0xc1, 0x01, 0x0a, 0x19, 0x63, 0x6f, 0x6d, 0x2e, 0x73,
+	0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65,
+	0x73, 0x77, 0x61, 0x70, 0x42, 0x07, 0x54, 0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
+	0x26, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70,
+	0x69, 0x2f, 0x73, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2f, 0x73, 0x69, 0x6d,
+	0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0xa2, 0x02, 0x03, 0x53, 0x53, 0x58, 0xaa, 0x02, 0x15,
+	0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x2e, 0x53, 0x69, 0x6d, 0x70, 0x6c,
+	0x65, 0x73, 0x77, 0x61, 0x70, 0xca, 0x02, 0x15, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77,
+	0x61, 0x70, 0x5c, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0xe2, 0x02, 0x21,
+	0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x5c, 0x53, 0x69, 0x6d, 0x70, 0x6c,
+	0x65, 0x73, 0x77, 0x61, 0x70, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0xea, 0x02, 0x16, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x3a, 0x3a,
+	0x53, 0x69, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x77, 0x61, 0x70, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -3168,7 +4170,7 @@ func file_simpleswap_simpleswap_tx_proto_rawDescGZIP() []byte {
 	return file_simpleswap_simpleswap_tx_proto_rawDescData
 }
 
-var file_simpleswap_simpleswap_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_simpleswap_simpleswap_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_simpleswap_simpleswap_tx_proto_goTypes = []interface{}{
 	(*MsgUpdateParams)(nil),             // 0: simpleswap.simpleswap.MsgUpdateParams
 	(*MsgUpdateParamsResponse)(nil),     // 1: simpleswap.simpleswap.MsgUpdateParamsResponse
@@ -3176,20 +4178,24 @@ var file_simpleswap_simpleswap_tx_proto_goTypes = []interface{}{
 	(*MsgProvideLiquidityResponse)(nil), // 3: simpleswap.simpleswap.MsgProvideLiquidityResponse
 	(*MsgSwap)(nil),                     // 4: simpleswap.simpleswap.MsgSwap
 	(*MsgSwapResponse)(nil),             // 5: simpleswap.simpleswap.MsgSwapResponse
-	(*Params)(nil),                      // 6: simpleswap.simpleswap.Params
-	(*v1beta1.Coin)(nil),                // 7: cosmos.base.v1beta1.Coin
+	(*MsgClaimLiquidity)(nil),           // 6: simpleswap.simpleswap.MsgClaimLiquidity
+	(*MsgClaimLiquidityResponse)(nil),   // 7: simpleswap.simpleswap.MsgClaimLiquidityResponse
+	(*Params)(nil),                      // 8: simpleswap.simpleswap.Params
+	(*v1beta1.Coin)(nil),                // 9: cosmos.base.v1beta1.Coin
 }
 var file_simpleswap_simpleswap_tx_proto_depIdxs = []int32{
-	6, // 0: simpleswap.simpleswap.MsgUpdateParams.params:type_name -> simpleswap.simpleswap.Params
-	7, // 1: simpleswap.simpleswap.MsgSwap.amount:type_name -> cosmos.base.v1beta1.Coin
+	8, // 0: simpleswap.simpleswap.MsgUpdateParams.params:type_name -> simpleswap.simpleswap.Params
+	9, // 1: simpleswap.simpleswap.MsgSwap.amount:type_name -> cosmos.base.v1beta1.Coin
 	0, // 2: simpleswap.simpleswap.Msg.UpdateParams:input_type -> simpleswap.simpleswap.MsgUpdateParams
 	2, // 3: simpleswap.simpleswap.Msg.ProvideLiquidity:input_type -> simpleswap.simpleswap.MsgProvideLiquidity
 	4, // 4: simpleswap.simpleswap.Msg.Swap:input_type -> simpleswap.simpleswap.MsgSwap
-	1, // 5: simpleswap.simpleswap.Msg.UpdateParams:output_type -> simpleswap.simpleswap.MsgUpdateParamsResponse
-	3, // 6: simpleswap.simpleswap.Msg.ProvideLiquidity:output_type -> simpleswap.simpleswap.MsgProvideLiquidityResponse
-	5, // 7: simpleswap.simpleswap.Msg.Swap:output_type -> simpleswap.simpleswap.MsgSwapResponse
-	5, // [5:8] is the sub-list for method output_type
-	2, // [2:5] is the sub-list for method input_type
+	6, // 5: simpleswap.simpleswap.Msg.ClaimLiquidity:input_type -> simpleswap.simpleswap.MsgClaimLiquidity
+	1, // 6: simpleswap.simpleswap.Msg.UpdateParams:output_type -> simpleswap.simpleswap.MsgUpdateParamsResponse
+	3, // 7: simpleswap.simpleswap.Msg.ProvideLiquidity:output_type -> simpleswap.simpleswap.MsgProvideLiquidityResponse
+	5, // 8: simpleswap.simpleswap.Msg.Swap:output_type -> simpleswap.simpleswap.MsgSwapResponse
+	7, // 9: simpleswap.simpleswap.Msg.ClaimLiquidity:output_type -> simpleswap.simpleswap.MsgClaimLiquidityResponse
+	6, // [6:10] is the sub-list for method output_type
+	2, // [2:6] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
 	2, // [2:2] is the sub-list for extension extendee
 	0, // [0:2] is the sub-list for field type_name
@@ -3274,6 +4280,30 @@ func file_simpleswap_simpleswap_tx_proto_init() {
 				return nil
 			}
 		}
+		file_simpleswap_simpleswap_tx_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgClaimLiquidity); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_simpleswap_simpleswap_tx_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgClaimLiquidityResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -3281,7 +4311,7 @@ func file_simpleswap_simpleswap_tx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_simpleswap_simpleswap_tx_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
