@@ -33,6 +33,17 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:          "Shows a stableCoinsWhiteList",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "index"}},
 				},
+				{
+					RpcMethod: "PoolAll",
+					Use:       "list-pool",
+					Short:     "List all pool",
+				},
+				{
+					RpcMethod:      "Pool",
+					Use:            "show-pool [id]",
+					Short:          "Shows a pool",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "index"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

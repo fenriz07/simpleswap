@@ -6,28 +6,29 @@ accounts:
    - 0usdt
    - 0dai
    - 0fdusd
-   - 1000weth
-   - 1000eth
-   - 1000steth
-   - 100000stake
+   - 100000000weth
+   - 100000000eth
+   - 100000000steth
+   - 100000000stake
+   - 1000000000000sharetoken
   address: cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4
 - name: virgie
   coins:
-   - 20000usdc
+   - 2000000000usdc
    - 200000000stake
 - name: servio
   coins:
-  - 10000usdc
-  - 100000000stake
+  - 2000000000usdc
+  - 1000000000stake
 - name: carlos
   coins:
-   - 10000usdc
-   - 100000000stake
+   - 2000000000usdc
+   - 1000000000stake
   address: cosmos1c474vrhw3ejq6s0kt2qx4pj43m70a3r8nk5skg
 - name: manuel
   coins:
-   - 10000usdc
-   - 100000000stake
+   - 2000000000usdc
+   - 1000000000stake
   address: cosmos1r3e63nat643tlxms88clv9rvzhq8cvc27tcsh3
 client:
   openapi:
@@ -35,7 +36,7 @@ client:
 faucet:
   name: servio
   coins:
-  - 5usdc
+  - 5000000usdc
   - 100000stake
 validators:
 - name: virgie
