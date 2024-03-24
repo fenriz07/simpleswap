@@ -1,6 +1,7 @@
 package keeper
 
 import (
+	"context"
 	"testing"
 
 	"cosmossdk.io/log"
@@ -21,6 +22,16 @@ import (
 	"github.com/fenriz07/simpleswap/x/simpleswap/types"
 )
 
+type BankTest struct{}
+
+func (b BankTest) SendCoins(ctx context.Context, fromAddr, toAddr sdk.AccAddress, amt sdk.Coins) error {
+	return nil
+}
+
+func (b BankTest) HasBalance(ctx context.Context, addr sdk.AccAddress, amt sdk.Coin) bool {
+	return true
+}
+
 func SimpleswapKeeper(t testing.TB) (keeper.Keeper, sdk.Context) {
 	storeKey := storetypes.NewKVStoreKey(types.StoreKey)
 
@@ -34,6 +45,7 @@ func SimpleswapKeeper(t testing.TB) (keeper.Keeper, sdk.Context) {
 	authority := authtypes.NewModuleAddress(govtypes.ModuleName)
 
 	k := keeper.NewKeeper(
+		BankTest{},
 		cdc,
 		runtime.NewKVStoreService(storeKey),
 		log.NewNopLogger(),

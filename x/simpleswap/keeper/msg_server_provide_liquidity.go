@@ -7,6 +7,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/fenriz07/simpleswap/x/simpleswap/shared/constants"
 	"github.com/fenriz07/simpleswap/x/simpleswap/types"
 )
 
@@ -28,17 +29,16 @@ func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvide
 		return nil, errorsmod.Wrapf(types.ErrStableIsNotAvailable, "(%s)", stableCoin.GetCoin())
 	}
 
-	from, err := sdk.AccAddressFromBech32(msg.Creator)
+	provider, err := sdk.AccAddressFromBech32(msg.Creator)
 
 	if err != nil {
-		return nil, errorsmod.Wrapf(types.ErrInvalidAccount, "(%s)", from.String())
+		return nil, errorsmod.Wrapf(types.ErrInvalidAccount, "(%s)", provider.String())
 	}
 
-	//BANK ACCOUNT
-	to, err := sdk.AccAddressFromBech32("cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4")
+	bank, err := sdk.AccAddressFromBech32(constants.BANK)
 
 	if err != nil {
-		return nil, errorsmod.Wrapf(types.ErrInvalidAccount, "(%s)", to.String())
+		return nil, errorsmod.Wrapf(types.ErrInvalidAccount, "(%s)", bank.String())
 	}
 
 	amount, err := strconv.ParseInt(msg.Amount, 10, 64)
@@ -52,7 +52,11 @@ func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvide
 		panic("SystemInfo not found")
 	}
 
-	k.bank.SendCoins(ctx, from, to, sdk.Coins{sdk.NewCoin(stableCoin.Coin, math.NewInt(amount))})
+	err = k.bank.SendCoins(ctx, provider, bank, sdk.Coins{sdk.NewCoin(stableCoin.Coin, math.NewInt(amount))})
+
+	if err != nil {
+		errorsmod.Wrapf(types.ErrSendCoin, "(%s)", err)
+	}
 
 	newIndex := strconv.FormatUint(systemInfo.NextId, 10)
 
@@ -61,6 +65,7 @@ func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvide
 		Account: msg.Creator,
 		Coin:    stableCoin.Coin,
 		Amount:  strconv.Itoa(int(amount)),
+		Fees:    "0",
 	})
 
 	k.Keeper.GetParams(ctx)
@@ -72,7 +77,11 @@ func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvide
 	shareTokenAmount := (amount * shareTokenPriceByStableCoin) / 10000000
 
 	coin := sdk.Coins{sdk.NewCoin(shareTokenName, math.NewInt(shareTokenAmount))}
-	k.bank.SendCoins(ctx, to, from, coin)
+
+	err = k.bank.SendCoins(ctx, bank, provider, coin)
+	if err != nil {
+		errorsmod.Wrapf(types.ErrSendCoin, "(%s)", err)
+	}
 
 	return &types.MsgProvideLiquidityResponse{}, nil
 }
