@@ -15,6 +15,7 @@ type AccountKeeper interface {
 // BankKeeper defines the expected interface for the Bank module.
 type BankKeeper interface {
 	SendCoins(ctx context.Context, fromAddr, toAddr sdk.AccAddress, amt sdk.Coins) error
+	HasBalance(ctx context.Context, addr sdk.AccAddress, amt sdk.Coin) bool
 }
 
 // ParamSubspace defines the expected Subspace interface for parameters.

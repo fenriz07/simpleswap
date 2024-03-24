@@ -6,10 +6,10 @@ accounts:
    - 0usdt
    - 0dai
    - 0fdusd
-   - 100000000weth
-   - 100000000eth
-   - 100000000steth
-   - 100000000stake
+   - 0weth
+   - 0eth
+   - 0steth
+   - 0stake
    - 1000000000000sharetoken
   address: cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4
 - name: virgie
@@ -24,12 +24,15 @@ accounts:
   coins:
    - 2000000000usdc
    - 1000000000stake
-  address: cosmos1c474vrhw3ejq6s0kt2qx4pj43m70a3r8nk5skg
 - name: manuel
   coins:
    - 2000000000usdc
    - 1000000000stake
-  address: cosmos1r3e63nat643tlxms88clv9rvzhq8cvc27tcsh3
+- name: orlando
+  coins:
+    - 100000000eth
+    - 100000000weth
+    - 1000000steth
 client:
   openapi:
     path: docs/static/openapi.yml
