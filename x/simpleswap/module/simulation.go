@@ -31,6 +31,10 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgSwap int = 100
 
+	opWeightMsgClaimLiquidity = "op_weight_msg_claim_liquidity"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgClaimLiquidity int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -81,6 +85,17 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 		simpleswapsimulation.SimulateMsgSwap(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
+	var weightMsgClaimLiquidity int
+	simState.AppParams.GetOrGenerate(opWeightMsgClaimLiquidity, &weightMsgClaimLiquidity, nil,
+		func(_ *rand.Rand) {
+			weightMsgClaimLiquidity = defaultWeightMsgClaimLiquidity
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgClaimLiquidity,
+		simpleswapsimulation.SimulateMsgClaimLiquidity(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
 	// this line is used by starport scaffolding # simapp/module/operation
 
 	return operations
@@ -102,6 +117,14 @@ func (am AppModule) ProposalMsgs(simState module.SimulationState) []simtypes.Wei
 			defaultWeightMsgSwap,
 			func(r *rand.Rand, ctx sdk.Context, accs []simtypes.Account) sdk.Msg {
 				simpleswapsimulation.SimulateMsgSwap(am.accountKeeper, am.bankKeeper, am.keeper)
+				return nil
+			},
+		),
+		simulation.NewWeightedProposalMsg(
+			opWeightMsgClaimLiquidity,
+			defaultWeightMsgClaimLiquidity,
+			func(r *rand.Rand, ctx sdk.Context, accs []simtypes.Account) sdk.Msg {
+				simpleswapsimulation.SimulateMsgClaimLiquidity(am.accountKeeper, am.bankKeeper, am.keeper)
 				return nil
 			},
 		),

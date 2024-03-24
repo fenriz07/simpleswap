@@ -22,6 +22,7 @@ const (
 	Msg_UpdateParams_FullMethodName     = "/simpleswap.simpleswap.Msg/UpdateParams"
 	Msg_ProvideLiquidity_FullMethodName = "/simpleswap.simpleswap.Msg/ProvideLiquidity"
 	Msg_Swap_FullMethodName             = "/simpleswap.simpleswap.Msg/Swap"
+	Msg_ClaimLiquidity_FullMethodName   = "/simpleswap.simpleswap.Msg/ClaimLiquidity"
 )
 
 // MsgClient is the client API for Msg service.
@@ -33,6 +34,7 @@ type MsgClient interface {
 	UpdateParams(ctx context.Context, in *MsgUpdateParams, opts ...grpc.CallOption) (*MsgUpdateParamsResponse, error)
 	ProvideLiquidity(ctx context.Context, in *MsgProvideLiquidity, opts ...grpc.CallOption) (*MsgProvideLiquidityResponse, error)
 	Swap(ctx context.Context, in *MsgSwap, opts ...grpc.CallOption) (*MsgSwapResponse, error)
+	ClaimLiquidity(ctx context.Context, in *MsgClaimLiquidity, opts ...grpc.CallOption) (*MsgClaimLiquidityResponse, error)
 }
 
 type msgClient struct {
@@ -70,6 +72,15 @@ func (c *msgClient) Swap(ctx context.Context, in *MsgSwap, opts ...grpc.CallOpti
 	return out, nil
 }
 
+func (c *msgClient) ClaimLiquidity(ctx context.Context, in *MsgClaimLiquidity, opts ...grpc.CallOption) (*MsgClaimLiquidityResponse, error) {
+	out := new(MsgClaimLiquidityResponse)
+	err := c.cc.Invoke(ctx, Msg_ClaimLiquidity_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -79,6 +90,7 @@ type MsgServer interface {
 	UpdateParams(context.Context, *MsgUpdateParams) (*MsgUpdateParamsResponse, error)
 	ProvideLiquidity(context.Context, *MsgProvideLiquidity) (*MsgProvideLiquidityResponse, error)
 	Swap(context.Context, *MsgSwap) (*MsgSwapResponse, error)
+	ClaimLiquidity(context.Context, *MsgClaimLiquidity) (*MsgClaimLiquidityResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -94,6 +106,9 @@ func (UnimplementedMsgServer) ProvideLiquidity(context.Context, *MsgProvideLiqui
 }
 func (UnimplementedMsgServer) Swap(context.Context, *MsgSwap) (*MsgSwapResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Swap not implemented")
+}
+func (UnimplementedMsgServer) ClaimLiquidity(context.Context, *MsgClaimLiquidity) (*MsgClaimLiquidityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClaimLiquidity not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -162,6 +177,24 @@ func _Msg_Swap_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_ClaimLiquidity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgClaimLiquidity)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).ClaimLiquidity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_ClaimLiquidity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).ClaimLiquidity(ctx, req.(*MsgClaimLiquidity))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -180,6 +213,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Swap",
 			Handler:    _Msg_Swap_Handler,
+		},
+		{
+			MethodName: "ClaimLiquidity",
+			Handler:    _Msg_ClaimLiquidity_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

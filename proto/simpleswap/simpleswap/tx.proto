@@ -20,6 +20,7 @@ service Msg {
   rpc UpdateParams     (MsgUpdateParams    ) returns (MsgUpdateParamsResponse    );
   rpc ProvideLiquidity (MsgProvideLiquidity) returns (MsgProvideLiquidityResponse);
   rpc Swap             (MsgSwap            ) returns (MsgSwapResponse            );
+  rpc ClaimLiquidity   (MsgClaimLiquidity  ) returns (MsgClaimLiquidityResponse  );
 }
 // MsgUpdateParams is the Msg/UpdateParams request type.
 message MsgUpdateParams {
@@ -58,4 +59,14 @@ message MsgSwap {
 }
 
 message MsgSwapResponse {}
+
+message MsgClaimLiquidity {
+  option (cosmos.msg.v1.signer) = "creator";
+  string creator             = 1;
+  string providerLiquidityId = 2;
+}
+
+message MsgClaimLiquidityResponse {
+  string claimLiquidityResponse = 1;
+}
 

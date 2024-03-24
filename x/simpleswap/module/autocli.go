@@ -67,6 +67,12 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:          "Send a swap tx",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "amount"}, {ProtoField: "denom"}},
 				},
+				{
+					RpcMethod:      "ClaimLiquidity",
+					Use:            "claim-liquidity [provider-liquidity-id]",
+					Short:          "Send a claimLiquidity tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "providerLiquidityId"}},
+				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},
