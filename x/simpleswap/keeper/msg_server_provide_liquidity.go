@@ -10,6 +10,10 @@ import (
 	"github.com/fenriz07/simpleswap/x/simpleswap/types"
 )
 
+const (
+	shareTokenName = "sharetoken"
+)
+
 func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvideLiquidity) (*types.MsgProvideLiquidityResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
@@ -43,7 +47,32 @@ func (k msgServer) ProvideLiquidity(goCtx context.Context, msg *types.MsgProvide
 		return nil, errorsmod.Wrapf(types.ErrAmoutHasToBeAnInt, "invalid amount value (%s)", err)
 	}
 
+	systemInfo, found := k.Keeper.GetSystemInfo(ctx)
+	if !found {
+		panic("SystemInfo not found")
+	}
+
 	k.bank.SendCoins(ctx, from, to, sdk.Coins{sdk.NewCoin(stableCoin.Coin, math.NewInt(amount))})
+
+	newIndex := strconv.FormatUint(systemInfo.NextId, 10)
+
+	k.Keeper.SetPool(ctx, types.Pool{
+		Index:   newIndex,
+		Account: msg.Creator,
+		Coin:    stableCoin.Coin,
+		Amount:  strconv.Itoa(int(amount)),
+	})
+
+	k.Keeper.GetParams(ctx)
+
+	systemInfo.NextId++
+	k.Keeper.SetSystemInfo(ctx, systemInfo)
+
+	var shareTokenPriceByStableCoin int64 = 100000 // 0.10
+	shareTokenAmount := (amount * shareTokenPriceByStableCoin) / 10000000
+
+	coin := sdk.Coins{sdk.NewCoin(shareTokenName, math.NewInt(shareTokenAmount))}
+	k.bank.SendCoins(ctx, to, from, coin)
 
 	return &types.MsgProvideLiquidityResponse{}, nil
 }

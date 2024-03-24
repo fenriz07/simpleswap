@@ -1,0 +1,14 @@
+syntax = "proto3";
+package simpleswap.simpleswap;
+
+option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
+
+message Pool {
+  string index = 1; 
+  string account = 2; 
+  string coin = 3; 
+  string amount = 4; 
+  string fees = 5; 
+  
+}
+

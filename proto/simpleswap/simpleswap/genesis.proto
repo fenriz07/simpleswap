@@ -7,6 +7,7 @@ import "gogoproto/gogo.proto";
 import "simpleswap/simpleswap/params.proto";
 import "simpleswap/simpleswap/system_info.proto";
 import "simpleswap/simpleswap/stable_coins_white_list.proto";
+import "simpleswap/simpleswap/pool.proto";
 
 option go_package = "github.com/fenriz07/simpleswap/x/simpleswap/types";
 
@@ -15,7 +16,8 @@ message GenesisState {
   
   // params defines all the parameters of the module.
            Params               params                   = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
-           SystemInfo           systemInfo               = 2 [(gogoproto.nullable) = false];
+           SystemInfo           systemInfo               = 2 [(gogoproto.nullable) = false] ;
   repeated StableCoinsWhiteList stableCoinsWhiteListList = 3 [(gogoproto.nullable) = false] ;
+  repeated Pool                 poolList                 = 4 [(gogoproto.nullable) = false] ;
 }
 

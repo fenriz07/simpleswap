@@ -14,6 +14,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	for _, elem := range genState.StableCoinsWhiteListList {
 		k.SetStableCoinsWhiteList(ctx, elem)
 	}
+	// Set all the pool
+	for _, elem := range genState.PoolList {
+		k.SetPool(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -29,6 +33,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 		genesis.SystemInfo = systemInfo
 	}
 	genesis.StableCoinsWhiteListList = k.GetAllStableCoinsWhiteList(ctx)
+	genesis.PoolList = k.GetAllPool(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis
