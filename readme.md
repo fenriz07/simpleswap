@@ -16,7 +16,9 @@ docker run --rm -it --name simpleswap -p 1317:1317/tcp -p 26656:26656/tcp -p 266
 ```
 
 
-### 3 Executing the use case
+### 3 Executing the use cases
+
+⚠️ replace {servio.address} {virgie.address} {orlando.address} per the address account that you can see in your cli. (step 2)
 
 #### Open a new terminal and put these commands:
 
@@ -61,7 +63,7 @@ docker exec -it simpleswap simpleswapd query simpleswap list-pool
 ![image](https://github.com/fenriz07/simpleswap/assets/9199380/f4c8465f-6d95-4e72-aabb-0ab3e04bb63c)
 
 
-#### Claiming liquiClaming liquidity and gains by fee
+#### Claiming liquidity and gains by fee
 
 ```
 docker exec -it simpleswap simpleswapd tx simpleswap claim-liquidity 5 --from {servio.address}
