@@ -43,7 +43,7 @@ docker exec -it simpleswap simpleswapd query simpleswap list-pool
 ![image](https://github.com/fenriz07/simpleswap/assets/9199380/85087c2a-6310-4d3e-895b-9f54f4165da0)
 
 
-#### Checking the back balance
+#### Checking the bank balance
 ```
 docker exec -it simpleswap simpleswapd query bank balances cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4 
 ```
