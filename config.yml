@@ -44,3 +44,5 @@ faucet:
 validators:
 - name: virgie
   bonded: 100000000stake
+  client:
+    chain-id: "simpleswap"
