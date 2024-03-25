@@ -3,71 +3,80 @@
 
 ## Get started
 
-```
-ignite chain serve
-```
-
-`serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
-
-### Configure
-
-Your blockchain in development can be configured with `config.yml`. To learn more, see the [Ignite CLI docs](https://docs.ignite.com).
-
-### Web Frontend
-
-Additionally, Ignite CLI offers both Vue and React options for frontend scaffolding:
-
-For a Vue frontend, use: `ignite scaffold vue`
-For a React frontend, use: `ignite scaffold react`
-These commands can be run within your scaffolded blockchain project. 
-
-
-For more information see the [monorepo for Ignite front-end development](https://github.com/ignite/web).
-
-## Release
-To release a new version of your blockchain, create and push a new tag with `v` prefix. A new draft release with the configured targets will be created.
+### 1 Creating the image
 
 ```
-git tag v0.1
-git push origin v0.1
-```
-
-After a draft release is created, make your final changes from the release page and publish it.
-
-### Install
-To install the latest version of your blockchain node's binary, execute the following command on your machine:
+docker build . -t simpleswap
 
 ```
-curl https://get.ignite.com/fenriz07/simpleswap@latest! | sudo bash
+### 2 Running the container
+
 ```
-`fenriz07/simpleswap` should match the `username` and `repo_name` of the Github repository to which the source code was pushed. Learn more about [the install process](https://github.com/allinbits/starport-installer).
-
-## Learn more
-
-- [Ignite CLI](https://ignite.com/cli)
-- [Tutorials](https://docs.ignite.com/guide)
-- [Ignite CLI docs](https://docs.ignite.com)
-- [Cosmos SDK docs](https://docs.cosmos.network)
-- [Developer Chat](https://discord.gg/ignite)
-
-##
-- ignite chain serve
-- simpleswapd query simpleswap show-system-info
-- simpleswapd query simpleswap list-stable-coins-white-list
-- simpleswapd tx simpleswap provide-liquidity 1 1500000000 --from $(simpleswapd keys show servio -a) 
-- simpleswapd query tx x
+docker run --rm -it --name simpleswap -p 1317:1317/tcp -p 26656:26656/tcp -p 26657:26657/tcp -p 6060:6060/tcp -p 9090:9090/tcp simpleswap:latest 
+```
 
 
-- simpleswapd keys list
-- simpleswapd query bank balances $(simpleswapd keys show servio -a)
-- simpleswapd query bank balances cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4  //bank
+### 3 Executing the use case
+
+#### Open a new terminal and put these commands:
+
+##### Providing Liquidity  1/2
+
+```
+docker exec -it simpleswap simpleswapd tx simpleswap provide-liquidity 1 1000000000 --from {servio.address}
+```
+
+##### Providing Liquidity  2/2
+
+```
+docker exec -it simpleswap simpleswapd tx simpleswap provide-liquidity 1 1500000000 --from {virgie.address}
+```
+
+#### Seeying the providers liquidity:
+
+```
+docker exec -it simpleswap simpleswapd query simpleswap list-pool
+```
+
+![image](https://github.com/fenriz07/simpleswap/assets/9199380/85087c2a-6310-4d3e-895b-9f54f4165da0)
 
 
-//swap
-- simpleswapd tx simpleswap swap 500000eth usdt  --from $(simpleswapd keys show orlando -a)
-- simpleswapd query bank balances $(simpleswapd keys show orlando -a)
-- simpleswapd tx simpleswap provide-liquidity 1 1500000000 --from $(simpleswapd keys show servio -a)
+#### Checking the back balance
+```
+docker exec -it simpleswap simpleswapd query bank balances cosmos189z79vlskxjm4n54va5954xlh02ktca6djmct4 
+```
+![image](https://github.com/fenriz07/simpleswap/assets/9199380/3e12e31e-e493-41bd-9cd4-b2695f3fb966)
+
+#### Swaping eth by usdc
+
+```
+docker exec -it simpleswap simpleswapd tx simpleswap swap 100000eth 1  --from {orlando.address}
+```
+
+#### Seeying the providers liquidity:
+```
+docker exec -it simpleswap simpleswapd query simpleswap list-pool
+```
+
+![image](https://github.com/fenriz07/simpleswap/assets/9199380/f4c8465f-6d95-4e72-aabb-0ab3e04bb63c)
 
 
-Pool
-simpleswapd query simpleswap list-pool
+#### Claiming liquiClaming liquidity and gains by fee
+
+```
+docker exec -it simpleswap simpleswapd tx simpleswap claim-liquidity 5 --from {servio.address}
+```
+
+#### Checking the servio account balance
+```
+docker exec -it simpleswap simpleswapd query bank balances {servio.address}
+```
+![image](https://github.com/fenriz07/simpleswap/assets/9199380/c709e36a-837a-4cff-a78e-abc699d3dc36)
+
+
+### Seeying the providers liquidity:
+```
+docker exec -it simpleswap simpleswapd query simpleswap list-pool
+```
+
+![image](https://github.com/fenriz07/simpleswap/assets/9199380/f7352462-0f0b-45fc-a2ff-0a8fc3ee2a12)
