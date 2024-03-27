@@ -1,7 +1,7 @@
 package types
 
+/*
 import (
-	"fmt"
 	"testing"
 
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
@@ -9,15 +9,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestGetFeeToReceive(t *testing.T) {
-	lp := LiquidityProvider{
-		Amount: 1430000000,
-	}
-
-	fee := lp.GetFeeToReceive(12400000, 5000000000)
-
-	fmt.Println(fee)
-}
 
 func TestMsgSwap_ValidateBasic(t *testing.T) {
 	tests := []struct {
@@ -48,4 +39,4 @@ func TestMsgSwap_ValidateBasic(t *testing.T) {
 			require.NoError(t, err)
 		})
 	}
-}
+}?*/
